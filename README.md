@@ -131,7 +131,6 @@ sessions
 
 ## DNSサーバ (unbound-dns)
 general.csrf-s[.]internal, evil.csrf-s[.]internalを解決させるためだけに使用
-それ以外のクエリは9.9.9.9に転送
 
 
 
