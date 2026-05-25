@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head lang=ja>
+		<meta charset="utf-8">
+		<title>Web掲示板 "シーサーフ"</title>
+		<link rel="stylesheet" href="./style.css">
+		<!-- <script defer src="./script.js"></script> -->
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Web掲示板 "シーサーフ"</h1>
+				<ul>
+					<li>
+						<a href="./login.html">ログイン</a>
+						<a href="./register.html">新規登録</a>
+					</li>
+				</ul>
+			</header>
+
+			<main>
+				<p>みんなの声一覧</p>
+				<ul id="messages"></ul>
+			</main>
+
+			<footer>
+				※これは学習目的で作成されました。実際の攻撃には使用しないでください。
+			</footer>
+
+			<script>
+				(async () => {
+					const res = await fetch("/api/messages")
+					const messages = await res.json()
+				
+					if (Array.isArray(messages)) {
+						const messagesListElement = document.querySelector("#messages")
+					
+						messages.forEach((message) => {
+							const listItemElement = document.createElement("li")
+							const authorElement = document.createElement("p")
+							const contentDivElement = document.createElement("div")
+						
+							authorElement.textContent = `${message.username} ${message.date}`
+							contentDivElement.className = "posts-content"
+						
+							const lines = message.content.split("\n")
+							lines.forEach(line => {
+								const p = document.createElement("p")
+								p.textContent = line
+								contentDivElement.appendChild(p)
+							})
+				
+							listItemElement.appendChild(authorElement)
+							listItemElement.appendChild(contentDivElement)
+							messagesListElement.appendChild(listItemElement)
+						})
+					}
+				})()
+			</script>
+		</div>
+	</body>
+</html>

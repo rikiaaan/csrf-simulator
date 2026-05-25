@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head lang=ja>
+		<meta charset="utf-8">
+		<title>Web掲示板 "シーサーフ" - 新規登録</title>
+		<link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Web掲示板 "シーサーフ" - 新規登録</h1>
+				<ul>
+					<li>
+						<a href="/">トップ</a>
+						<a href="./login.html">ログイン</a>
+					</li>
+				</ul>
+			</header>
+
+			<main>
+				<form action="/api/register" method="post" class="login-form">
+					<div>
+						<label for="username">ユーザー名</label>
+						<input name="username" type="text" id="username">
+					</div>
+					<div>
+						<label for="password">パスワード</label>
+						<input name="password" type="password" id="password">
+					</div>
+
+					<input type="submit" value="ログイン">
+				</form>
+			</main>
+
+			<footer>
+				※これは学習目的で作成されました。実際の攻撃には使用しないでください。
+			</footer>
+		</div>
+	</body>
+</html>

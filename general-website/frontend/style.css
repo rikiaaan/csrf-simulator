@@ -1,0 +1,28 @@
+@charset "utf8";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 800px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+form {
+  text-align: center;
+}
+
+footer {
+  margin-top: 2rem;
+}
+
+.posts-content p {
+  margin: 0;
+}

